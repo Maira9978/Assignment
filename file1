@@ -1,0 +1,99 @@
+class Leaderboard
+
+    def init(a=0,b=0, l=[],aps=[])
+        @a=input(a)
+        @b = input()
+        @l= lbs
+        @aps=aps
+    end
+    def input()
+        if b<1 || b>(2*10**5) 
+            loop do 
+            puts "Enter the value :"
+            b=gets
+            if b>=1 || b<=(2*10**5) 
+                break
+            end 
+            end 
+        end 
+        return b
+    end
+    
+
+    def Leader()  
+        @lbs.sort! {|x, y| y <=> x}
+        check=false
+    
+        res=[]
+        for i in 0...@a do 
+            dup=@l[0]
+            rank=1
+            check=false
+            for j in 0...@b do 
+
+            if dup == @l[j] 
+                
+            else 
+                rank=rank+1
+                dup=@l[j]
+            end 
+
+                if @aps[i]>=@l[j]
+                    res[i]=rank
+                    check=true
+                    break
+                end
+
+            end
+            if check==false 
+                res[i]=rank+1
+            end 
+
+        end
+        return res
+    end
+
+end
+
+l=[]
+aps=[]
+b=l.length
+
+puts"Enter the value:"
+b=gets.chomp.to_i
+
+puts "Enter score:"
+for i in 0...b do 
+    l[i]=gets.chomp.to_i
+    if l[i].to_i>(10**9)
+        loop do 
+            puts "Enter your value"
+            l[i]=gets.chomp.to_i
+            if l[i]<=(10**9)
+                break
+            end
+        end
+    end
+end
+
+puts "Enter the value of player:"
+a=gets.chomp.to_i
+
+puts "Enter your player-list:"
+for i in 0...a do 
+    aps[i]=gets.chomp.to_i
+    if aps[i].to_i>(10**9)
+        loop do 
+            puts "Enter your value"
+            aps[i]=gets.chomp.to_i
+            if aps[i]<=(10**9)
+                break
+            end
+        end
+    end
+end
+
+obj1 = Leaderboard.new(a,b,l, aps)
+res = obj1.Leader()
+
+print(res)
