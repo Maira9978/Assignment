@@ -6,7 +6,7 @@ class Leaderboard
         @l= l
         @ps=ps
     end
-    def input()
+    def input(b)
         if b<1 || b>(2*10**5) 
             loop do 
             puts "Enter the value :"
