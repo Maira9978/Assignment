@@ -82,7 +82,7 @@ a=gets.chomp.to_i
 puts "Enter your player-list:"
 for i in 0...a do 
     ps[i]=gets.chomp.to_i
-    if aps[i].to_i>(10**9)
+    if ps[i].to_i>(10**9)
         loop do 
             puts "Enter your value"
             ps[i]=gets.chomp.to_i
