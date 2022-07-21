@@ -1,10 +1,10 @@
 class Leaderboard
 
-    def init(a=0,b=0, l=[],aps=[])
+    def init(a=0,b=0, l=[],ps=[])
         @a=input(a)
         @b = input()
-        @l= lbs
-        @aps=aps
+        @l= l
+        @ps=ps
     end
     def input()
         if b<1 || b>(2*10**5) 
@@ -21,7 +21,7 @@ class Leaderboard
     
 
     def Leader()  
-        @lbs.sort! {|x, y| y <=> x}
+        @l.sort! {|x, y| y <=> x}
         check=false
     
         res=[]
@@ -38,7 +38,7 @@ class Leaderboard
                 dup=@l[j]
             end 
 
-                if @aps[i]>=@l[j]
+                if @ps[i]>=@l[j]
                     res[i]=rank
                     check=true
                     break
@@ -56,7 +56,7 @@ class Leaderboard
 end
 
 l=[]
-aps=[]
+ps=[]
 b=l.length
 
 puts"Enter the value:"
@@ -81,19 +81,19 @@ a=gets.chomp.to_i
 
 puts "Enter your player-list:"
 for i in 0...a do 
-    aps[i]=gets.chomp.to_i
+    ps[i]=gets.chomp.to_i
     if aps[i].to_i>(10**9)
         loop do 
             puts "Enter your value"
-            aps[i]=gets.chomp.to_i
-            if aps[i]<=(10**9)
+            ps[i]=gets.chomp.to_i
+            if ps[i]<=(10**9)
                 break
             end
         end
     end
 end
 
-obj1 = Leaderboard.new(a,b,l, aps)
+obj1 = Leaderboard.new(a,b,l, ps)
 res = obj1.Leader()
 
 print(res)
